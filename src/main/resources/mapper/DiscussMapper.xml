@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.DiscussMapper">
+    <resultMap id="d_u" type="discuss">
+        <result property="text" column="text"></result>
+        <result property="m3_id" column="m3_id"></result>
+        <result property="uid" column="uid"></result>
+        <result property="time" column="time"></result>
+        <result property="name" column="name"></result>
+        <result property="pic" column="pic"></result>
+
+    </resultMap>
+    <select id="selectById" resultMap="d_u" parameterType="int">
+        select u.name,u.pic,d.* from user u,discuss d where d.uid=u.id and d.m3_id=#{id}
+    </select>
+    <select id="getRows" resultType="int" parameterType="int">
+        select count(*) from discuss where m3_id=#{id}
+    </select>
+</mapper>

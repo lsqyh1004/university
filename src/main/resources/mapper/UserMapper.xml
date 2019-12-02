@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.UserMapper">
+    <select id="findOne" parameterType="user" resultType="user">
+        select * from user where name=#{name} and tel=#{tel} and email=#{email}
+    </select>
+    <insert id="add" parameterType="user">
+        insert into user(name,pass,tel,email) values (#{name},#{pass},#{tel},#{email})
+    </insert>
+    <insert id="addRoler" parameterType="com.qf.pojo.UserRoler">
+        insert into user_roler(uid,rid) values (#{uid},#{rid})
+    </insert>
+    <select id="selectById" parameterType="int" resultType="permission">
+        SELECT r.roler FROM USER u,user_roler ur,roler r WHERE u.id=ur.uid AND ur.rid=r.rid AND uid=#{id}
+    </select>
+    <select id="selectByName" parameterType="String" resultType="user">
+        select * from user where name=#{name}
+    </select>
+</mapper>
