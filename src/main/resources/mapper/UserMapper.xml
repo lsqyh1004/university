@@ -18,4 +18,16 @@
     <select id="selectByName" parameterType="String" resultType="user">
         select * from user where name=#{name}
     </select>
+<!--    查询所有用户-->
+    <select id="infAllUser" resultType="user">
+        select * from user
+    </select>
+<!--    根据id查询用户-->
+    <select id="selectUserById" resultType="user" parameterType="int">
+        select * from user where id=#{id}
+    </select>
+<!--    根据id修改用户-->
+    <update id="updateUserById" parameterType="user" >
+        update user set id=#{id},name=#{name},pass=#{pass},tel=#{tel},email=#{email},pic=#{pic} where id=#{id}
+    </update>
 </mapper>
