@@ -15,4 +15,8 @@ public interface MenuService {
     List<Menu2> selectC23ByC1(Integer id);
 
     Menu4 selectC4ByC3(Integer id);
+
+    Menu3 selectC3ById(Integer id);
+
+    int editpageview(Integer id);
 }

@@ -17,5 +17,9 @@ public interface MenuMapper {
 
     List<Menu2> selectC23ByC1(Integer id);//点击一级菜单查询二三级菜单
 
-    Menu4 selectC4ByC3(Integer id);
+    Menu4 selectC4ByC3(Integer id);//通过三级菜单的编号展示四级菜单的相关数据
+
+    Menu3 selectC3ById(int id);//通过三级菜单得编号查询三级菜单的一条数据
+
+    int editpageview(Integer id);//修改浏览量
 }

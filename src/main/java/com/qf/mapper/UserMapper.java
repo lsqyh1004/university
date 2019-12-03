@@ -18,4 +18,5 @@ public interface UserMapper {
     List<Permission> selectById(Integer id);
 
     User selectByName(String name);
+
 }

@@ -45,5 +45,10 @@
     <select id="selectC4ByC3" parameterType="int" resultType="menu4">
         select * from menu4 where m3_id=#{id}
     </select>
-
+    <select id="selectC3ById" parameterType="int" resultType="menu3">
+        select * from menu3 where id=#{id}
+    </select>
+    <update id="editpageview" parameterType="int">
+        update menu3 set pageview=pageview+1 where id=#{id}
+    </update>
 </mapper>

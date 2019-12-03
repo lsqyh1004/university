@@ -20,4 +20,9 @@ public class DiscussServiceImpl implements DiscussService {
     public int getRows(Integer id) {
         return discussMapper.getRows(id);
     }
+
+    @Override
+    public int add(Discuss discuss) {
+        return discussMapper.add(discuss);
+    }
 }

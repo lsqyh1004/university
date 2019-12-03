@@ -8,4 +8,6 @@ public interface DiscussService {
     List<Discuss> selectById(Integer id);
 
     int getRows(Integer id);
+
+    int add(Discuss discuss);
 }

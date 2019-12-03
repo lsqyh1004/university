@@ -18,4 +18,7 @@
     <select id="getRows" resultType="int" parameterType="int">
         select count(*) from discuss where m3_id=#{id}
     </select>
+    <insert id="add" parameterType="discuss">
+        insert into discuss values (#{text},#{m3_id},#{uid},#{time})
+    </insert>
 </mapper>

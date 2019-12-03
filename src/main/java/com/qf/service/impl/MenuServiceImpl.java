@@ -34,4 +34,15 @@ public class MenuServiceImpl implements MenuService {
     public Menu4 selectC4ByC3(Integer id) {
         return menuMapper.selectC4ByC3(id);
     }
+
+    @Override
+    public Menu3 selectC3ById(Integer id) {
+        return menuMapper.selectC3ById(id);
+    }
+
+    @Override
+    public int editpageview(Integer id) {
+
+        return menuMapper.editpageview(id);
+    }
 }

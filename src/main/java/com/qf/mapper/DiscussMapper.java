@@ -9,4 +9,6 @@ public interface DiscussMapper {
     List<Discuss> selectById(Integer id);
 
     int getRows(int id);
+
+    int add(Discuss discuss);
 }

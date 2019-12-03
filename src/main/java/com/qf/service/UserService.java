@@ -16,4 +16,5 @@ public interface UserService {
     List<Permission> selectById(Integer id);
 
     User selectByName(String name);
+
 }
