@@ -30,4 +30,11 @@
     <update id="updateUserById" parameterType="user" >
         update user set id=#{id},name=#{name},pass=#{pass},tel=#{tel},email=#{email},pic=#{pic} where id=#{id}
     </update>
+<!--    根据id删除用户-->
+    <delete id="deleteById" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+    <delete id="deletezjbById" parameterType="int">
+        delete from user_roler where uid=#{id}
+    </delete>
 </mapper>

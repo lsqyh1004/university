@@ -55,5 +55,15 @@ private UserMapper userMapper;
         return userMapper.selectUserById(id);
     }
 
+    @Override
+    public void deleteById(int id) {
+        userMapper.deleteById(id);
+    }
+
+    @Override
+    public void deletezjbById(int id) {
+        userMapper.deletezjbById(id);
+    }
+
 
 }

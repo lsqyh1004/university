@@ -24,4 +24,8 @@ public interface UserMapper {
     void updateUserById(User user);
     //根据id查询用户
     User selectUserById(int id);
+    //根据id删除用户
+    void deleteById(int id);
+    //删除中间
+    void deletezjbById(int id);
 }

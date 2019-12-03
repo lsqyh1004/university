@@ -86,7 +86,7 @@ public class UserController {
         return map;
     }
     //根据id修改用户
-    @RequestMapping("/updateUserById")
+    @RequestMapping(value = "/updateUserById",method = RequestMethod.POST)
     public Map<String,Object> updateUserById(User user){
         Map<String,Object> map=new HashMap<>();
         try {
@@ -96,5 +96,18 @@ public class UserController {
             map.put("jg",1);
         }
         return map;
+    }
+    //根据id删除用户
+    @RequestMapping(value = "/deleteById",method = RequestMethod.POST)
+    public Map<String,Object> deleteById(@RequestParam("id") int id){
+       Map<String,Object> map=new HashMap<>();
+       try {
+           userService.deletezjbById(id);
+           userService.deleteById(id);
+           map.put("jg",0);
+       }catch (Exception e){
+           map.put("jg",1);
+       }
+       return map;
     }
 }
