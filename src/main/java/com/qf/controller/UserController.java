@@ -71,11 +71,9 @@ public class UserController {
     }
     //查询所有用户
     @RequestMapping("/infAllUser")
-    public Map<String,Object> infAllUser(){
+    public List infAllUser(){
         List<User> users = userService.infAllUser();
-        Map<String,Object> map=new HashMap<>();
-        map.put("users",users);
-        return map;
+        return users;
     }
     //根据id查询用户
     @RequestMapping(value = "/selectUserById",method = RequestMethod.POST)
