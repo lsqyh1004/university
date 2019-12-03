@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -65,5 +68,33 @@ public class UserController {
             return userService.selectByName(user.getName());
         }
         return null;
+    }
+    //查询所有用户
+    @RequestMapping("/infAllUser")
+    public Map<String,Object> infAllUser(){
+        List<User> users = userService.infAllUser();
+        Map<String,Object> map=new HashMap<>();
+        map.put("users",users);
+        return map;
+    }
+    //根据id查询用户
+    @RequestMapping(value = "/selectUserById",method = RequestMethod.POST)
+    public Map<String,Object> selectUserById(@RequestParam int id){
+        Map<String,Object> map=new HashMap<>();
+        User user = userService.selectUserById(id);
+        map.put("user",user);
+        return map;
+    }
+    //根据id修改用户
+    @RequestMapping("/updateUserById")
+    public Map<String,Object> updateUserById(User user){
+        Map<String,Object> map=new HashMap<>();
+        try {
+            userService.updateUserById(user);
+            map.put("jg",0);
+        }catch (Exception e){
+            map.put("jg",1);
+        }
+        return map;
     }
 }

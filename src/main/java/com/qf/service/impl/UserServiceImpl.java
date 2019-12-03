@@ -40,5 +40,20 @@ private UserMapper userMapper;
         return userMapper.selectByName(name);
     }
 
+    @Override
+    public List<User> infAllUser() {
+        return userMapper.infAllUser();
+    }
+
+    @Override
+    public void updateUserById(User user) {
+        userMapper.updateUserById(user);
+    }
+
+    @Override
+    public User selectUserById(int id) {
+        return userMapper.selectUserById(id);
+    }
+
 
 }
