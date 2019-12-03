@@ -1,5 +1,6 @@
 package com.qf.controller;
 
+import com.qf.pojo.Msg;
 import com.qf.pojo.User;
 import com.qf.pojo.UserRoler;
 import com.qf.service.UserService;
@@ -11,10 +12,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -70,10 +68,9 @@ public class UserController {
         return null;
     }
     //查询所有用户
-    @RequestMapping("/infAllUser")
-    public List infAllUser(){
-        List<User> users = userService.infAllUser();
-        return users;
+    @RequestMapping("/infAllUser/{size}/{page}")
+    public Msg infAllUser(@PathVariable("size") Integer size, @PathVariable("page") Integer page){
+        return userService.infAllUser(size,page);
     }
     //根据id查询用户
     @RequestMapping(value = "/selectUserById",method = RequestMethod.POST)

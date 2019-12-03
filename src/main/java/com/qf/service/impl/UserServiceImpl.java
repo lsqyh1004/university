@@ -1,11 +1,16 @@
 package com.qf.service.impl;
 
 import com.qf.mapper.UserMapper;
+import com.qf.mapper.UserRepository;
+import com.qf.pojo.Msg;
 import com.qf.pojo.Permission;
 import com.qf.pojo.User;
 import com.qf.pojo.UserRoler;
 import com.qf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +19,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 @Autowired
 private UserMapper userMapper;
+@Autowired
+private UserRepository userRepository;
     @Override
     public User findOne(User user) {
         return userMapper.findOne(user);
@@ -41,8 +48,20 @@ private UserMapper userMapper;
     }
 
     @Override
-    public List<User> infAllUser() {
-        return userMapper.infAllUser();
+    public Msg infAllUser(Integer size,Integer page) {
+        if(page<0){
+            page=0;
+        }else{
+            page=page-1;
+        }
+        Pageable of = PageRequest.of(page, size);
+        Page<User> all = userRepository.findAll(of);
+        List<User> content = all.getContent();
+        Msg msg = new Msg();
+        msg.setList(content);
+        msg.setTotal(all.getTotalElements());
+        msg.setPage(all.getTotalPages());
+        return msg;
     }
 
     @Override

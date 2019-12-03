@@ -1,5 +1,6 @@
 package com.qf.service;
 
+import com.qf.pojo.Msg;
 import com.qf.pojo.Permission;
 import com.qf.pojo.User;
 import com.qf.pojo.UserRoler;
@@ -17,7 +18,7 @@ public interface UserService {
 
     User selectByName(String name);
     //查询所有用户
-    List<User> infAllUser();
+    Msg infAllUser(Integer size, Integer page);
     //根据id修改用户
     void updateUserById(User user);
     //根据id查询用户
