@@ -17,12 +17,13 @@ public class Menu3Controller {
     private Menu3Service menu3Service;
     @ResponseBody
     @RequestMapping("/selectMenu3mohuByName")
-    public List selectMenu3mohuByName(@RequestParam("name") String name){
-        if (name!=null){
+    public List<Menu3> selectMenu3mohuByName(@RequestParam("name") String name){
+        if (name!=null&&name.trim().length()!=0){
             name="%"+name+"%";
+            List<Menu3> menu3s = menu3Service.selectMenu3mohuByName(name);
+            return menu3s;
         }
-        System.out.println(name+"........................");
-        List<Menu3> menu3s = menu3Service.selectMenu3mohuByName(name);
-        return menu3s;
+        return menu3Service.selctLikeNull();
+
     }
 }

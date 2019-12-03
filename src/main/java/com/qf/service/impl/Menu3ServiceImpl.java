@@ -15,4 +15,9 @@ public class Menu3ServiceImpl implements Menu3Service {
     public List<Menu3> selectMenu3mohuByName(String name) {
         return menu3Mapper.selectMenu3mohuByName(name);
     }
+
+    @Override
+    public List<Menu3> selctLikeNull() {
+        return menu3Mapper.selectLikeNull();
+    }
 }

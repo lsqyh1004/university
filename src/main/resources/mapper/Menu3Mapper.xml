@@ -3,7 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qf.mapper.Menu3Mapper">
-    <select id="selectMenu3mohuByName" resultType="com.qf.pojo.Menu3" parameterType="java.lang.String">
+    <select id="selectMenu3mohuByName" resultType="menu3" parameterType="java.lang.String">
         select * from menu3 where name3 like #{name}
+    </select>
+    <select id="selectLikeNull" resultType="menu3">
+        select * from menu3 order by pageview desc limit 0,10
     </select>
 </mapper>
