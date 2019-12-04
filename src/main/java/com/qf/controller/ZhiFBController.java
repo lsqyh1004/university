@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ZhiFBController {
     @RequestMapping("/chongzhi")
     public String chongzhi(){
-        return "index";
+        return "alipay.trade.page.pay";
     }
     @RequestMapping("/alipay")
     public String alipay(){

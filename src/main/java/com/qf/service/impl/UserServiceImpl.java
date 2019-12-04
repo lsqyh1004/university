@@ -83,6 +83,4 @@ private UserRepository userRepository;
     public void deletezjbById(int id) {
         userMapper.deletezjbById(id);
     }
-
-
 }
