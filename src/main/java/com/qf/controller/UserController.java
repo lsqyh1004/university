@@ -73,16 +73,15 @@ public class UserController {
         return userService.infAllUser(size,page);
     }
     //根据id查询用户
-    @RequestMapping(value = "/selectUserById",method = RequestMethod.POST)
-    public Map<String,Object> selectUserById(@RequestParam int id){
-        Map<String,Object> map=new HashMap<>();
-        User user = userService.selectUserById(id);
-        map.put("user",user);
-        return map;
+        @RequestMapping(value = "/selectUserById",method = RequestMethod.POST)
+    public User selectUserById(@RequestBody User user){
+        User users = userService.selectUserById(user.getId());
+        return users;
     }
     //根据id修改用户
     @RequestMapping(value = "/updateUserById",method = RequestMethod.POST)
-    public Map<String,Object> updateUserById(User user){
+    public Map<String,Object> updateUserById(@RequestBody User user){
+        System.out.println(user);
         Map<String,Object> map=new HashMap<>();
         try {
             userService.updateUserById(user);
@@ -94,15 +93,15 @@ public class UserController {
     }
     //根据id删除用户
     @RequestMapping(value = "/deleteById",method = RequestMethod.POST)
-    public Map<String,Object> deleteById(@RequestParam("id") int id){
-       Map<String,Object> map=new HashMap<>();
-       try {
-           userService.deletezjbById(id);
-           userService.deleteById(id);
-           map.put("jg",0);
-       }catch (Exception e){
-           map.put("jg",1);
-       }
-       return map;
+    public Map<String,Object> deleteById(@RequestBody User user){
+        Map<String,Object> map=new HashMap<>();
+        try {
+             userService.deletezjbById(user.getId());
+             userService.deleteById(user.getId());
+             map.put("success","success");
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return map;
     }
 }

@@ -6,10 +6,6 @@ spring:
     username: root
     driver-class-name: com.mysql.jdbc.Driver
     password: 123456
-  mvc:
-    view: #新版本 1.3后可以使用
-      suffix: .jsp
-      prefix: /WEB-INF/
 qiniu:
   accessKey: 3345er4jvn4W80gAnxb1yTKHENTOEX763lNEWMF4
   secretKey: 6aLBb0yeo2W5nI1D4r0aph7IrPAEjc5521UY3opg
