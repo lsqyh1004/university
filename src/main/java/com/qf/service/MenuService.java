@@ -16,4 +16,8 @@ public interface MenuService {
     Menu3 selectC3ById(Integer id);
 
     int editpageview(Integer id);
+
+    Sp houtaisp(Integer size,Integer page);
+
+    int del(Integer id);
 }

@@ -1,9 +1,13 @@
 package com.qf.service.impl;
 
 import com.qf.mapper.MenuMapper;
+import com.qf.mapper.MenuRepository;
 import com.qf.pojo.*;
 import com.qf.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +16,8 @@ import java.util.List;
 public class MenuServiceImpl implements MenuService {
     @Autowired
     private MenuMapper menuMapper;
+    @Autowired
+    private MenuRepository menuRepository;
     @Override
     public List<Menu1> selectIndex() {
        return menuMapper.selectIndex();
@@ -41,5 +47,30 @@ public class MenuServiceImpl implements MenuService {
     public int editpageview(Integer id) {
 
         return menuMapper.editpageview(id);
+    }
+
+    @Override
+    public Sp houtaisp(Integer size,Integer page) {
+        if(page<0){
+            page=0;
+        }else{
+            page=page-1;
+        }
+        Pageable of = PageRequest.of(page, size);
+        Page<Menu3> all = menuRepository.findAll(of);
+        List<Menu3> content = all.getContent();
+        Sp msg=new Sp();
+        msg.setList(content);
+        msg.setTotals(all.getTotalElements());
+        msg.setPages(all.getTotalPages());
+        return msg;
+    }
+
+    @Override
+    public int del(Integer id) {
+
+        System.out.println(menuMapper.delMenu4(id)+"======");
+        int s=menuMapper.del(id);
+        return s;
     }
 }

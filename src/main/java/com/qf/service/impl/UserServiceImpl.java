@@ -83,4 +83,14 @@ private UserRepository userRepository;
     public void deletezjbById(int id) {
         userMapper.deletezjbById(id);
     }
+
+    @Override
+    public UserRoler selectRoler(Integer id) {
+        return userMapper.selectRoler(id);
+    }
+
+    @Override
+    public int updateUserRoler(Integer uid) {
+        return userMapper.updateUserRoler(uid);
+    }
 }

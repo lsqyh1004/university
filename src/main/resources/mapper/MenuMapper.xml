@@ -14,7 +14,7 @@
             <result property="url5" column="url5"></result>
         </association>
         <collection property="list" ofType="menu3">
-            <id column="id" property="id"></id>
+            <id column="id3" property="id3"></id>
             <result column="name3" property="name3"></result>
             <result column="school" property="school"></result>
             <result column="pageview" property="pageview"></result>
@@ -25,7 +25,7 @@
     <resultMap id="m2" type="menu2">
         <result column="name2" property="name2"></result>
         <collection property="list" ofType="menu3">
-            <id column="id" property="id"></id>
+            <id column="id3" property="id3"></id>
             <result column="name3" property="name3"></result>
             <result column="school" property="school"></result>
             <result column="pageview" property="pageview"></result>
@@ -46,9 +46,15 @@
         select * from menu4 where m3_id=#{id}
     </select>
     <select id="selectC3ById" parameterType="int" resultType="menu3">
-        select * from menu3 where id=#{id}
+        select * from menu3 where id3=#{id}
     </select>
     <update id="editpageview" parameterType="int">
-        update menu3 set pageview=pageview+1 where id=#{id}
+        update menu3 set pageview=pageview+1 where id3=#{id}
     </update>
+    <delete id="delMenu4" parameterType="int">
+        DELETE FROM menu4 WHERE m3_id=#{id}
+    </delete>
+    <delete id="del" parameterType="int">
+        delete from menu3 where id3=#{id}
+    </delete>
 </mapper>

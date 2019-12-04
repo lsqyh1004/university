@@ -37,4 +37,10 @@
     <delete id="deletezjbById" parameterType="int">
         delete from user_roler where uid=#{id}
     </delete>
+    <select id="selectRoler" resultType="com.qf.pojo.UserRoler" parameterType="int">
+        select * from user_roler where uid=#{id}
+    </select>
+    <update id="updateUserRoler" parameterType="int">
+        update user_roler set rid=2 where uid=#{uid}
+    </update>
 </mapper>

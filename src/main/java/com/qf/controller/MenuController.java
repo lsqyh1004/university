@@ -66,4 +66,15 @@ public class MenuController {
         du.setRows(num);
         return du;
     }
+    @RequestMapping("/houtaisp/{size}/{page}")
+    public Sp houtaisp(@PathVariable("size") Integer size, @PathVariable("page") Integer page){
+
+       return menuService.houtaisp(size,page);
+    }
+    @RequestMapping(value = "/del",method = RequestMethod.POST)
+    public int del(@RequestBody Menu3 menu3){
+
+        System.out.println(menu3+"?????????????????");
+        return menuService.del(menu3.getId3());
+    }
 }

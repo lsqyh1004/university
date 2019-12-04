@@ -27,4 +27,8 @@ public interface UserService {
     void deleteById(int id);
     //删除中间
     void deletezjbById(int id);
+
+    UserRoler selectRoler(Integer id);
+
+    int updateUserRoler(Integer uid);
 }

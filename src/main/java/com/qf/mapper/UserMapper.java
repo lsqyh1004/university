@@ -28,4 +28,8 @@ public interface UserMapper {
     void deleteById(int id);
     //删除中间
     void deletezjbById(int id);
+
+    UserRoler selectRoler(Integer id);//根据用户id查找相关权限
+
+    int updateUserRoler(Integer uid);//根据用户id修改权限
 }
