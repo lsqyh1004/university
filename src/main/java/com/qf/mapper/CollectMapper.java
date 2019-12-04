@@ -12,4 +12,6 @@ public interface CollectMapper {
     int add(Collect collect);
 
     List<Collect> findall(Integer uid, Integer sid);
+
+    int del(Integer id);
 }

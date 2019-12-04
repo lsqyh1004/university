@@ -35,10 +35,7 @@ public class PayController {
         User user = (User) session.getAttribute("user");
         if (user!=null){
             User user1 = userService.selectByName(user.getName());
-
-                userService.updateUserRoler(user1.getId());
-
-
+            userService.updateUserRoler(user1.getId());
         }
         return pay;
     }

@@ -21,4 +21,7 @@
     <insert id="add" parameterType="discuss">
         insert into discuss values (#{text},#{m3_id},#{uid},#{time})
     </insert>
+    <delete id="del" parameterType="int">
+        delete from discuss where m3_id=#{id}
+    </delete>
 </mapper>

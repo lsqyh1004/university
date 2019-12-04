@@ -1,5 +1,7 @@
 package com.qf.service.impl;
 
+import com.qf.mapper.CollectMapper;
+import com.qf.mapper.DiscussMapper;
 import com.qf.mapper.MenuMapper;
 import com.qf.mapper.MenuRepository;
 import com.qf.pojo.*;
@@ -18,6 +20,10 @@ public class MenuServiceImpl implements MenuService {
     private MenuMapper menuMapper;
     @Autowired
     private MenuRepository menuRepository;
+    @Autowired
+    private DiscussMapper discussMapper;
+    @Autowired
+    private CollectMapper collectMapper;
     @Override
     public List<Menu1> selectIndex() {
        return menuMapper.selectIndex();
@@ -70,6 +76,8 @@ public class MenuServiceImpl implements MenuService {
     public int del(Integer id) {
 
         System.out.println(menuMapper.delMenu4(id)+"======");
+        System.out.println(discussMapper.del(id));
+        System.out.println(collectMapper.del(id));
         int s=menuMapper.del(id);
         return s;
     }

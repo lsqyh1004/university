@@ -12,4 +12,7 @@
     <select id="findall" parameterType="int" resultType="collect">
         select * from collect where uid=#{uid} and sid=#{sid}
     </select>
+    <delete id="del" parameterType="int">
+        delete from collect where m3_id=#{id}
+    </delete>
 </mapper>

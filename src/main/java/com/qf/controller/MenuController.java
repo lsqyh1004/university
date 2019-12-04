@@ -74,7 +74,6 @@ public class MenuController {
     @RequestMapping(value = "/del",method = RequestMethod.POST)
     public int del(@RequestBody Menu3 menu3){
 
-        System.out.println(menu3+"?????????????????");
         return menuService.del(menu3.getId3());
     }
 }
