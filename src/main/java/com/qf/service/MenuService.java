@@ -1,9 +1,6 @@
 package com.qf.service;
 
-import com.qf.pojo.Menu1;
-import com.qf.pojo.Menu2;
-import com.qf.pojo.Menu3;
-import com.qf.pojo.Menu4;
+import com.qf.pojo.*;
 
 import java.util.List;
 

@@ -1,10 +1,7 @@
 package com.qf.service.impl;
 
 import com.qf.mapper.MenuMapper;
-import com.qf.pojo.Menu1;
-import com.qf.pojo.Menu2;
-import com.qf.pojo.Menu3;
-import com.qf.pojo.Menu4;
+import com.qf.pojo.*;
 import com.qf.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
