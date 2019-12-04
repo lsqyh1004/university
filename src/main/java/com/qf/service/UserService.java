@@ -28,7 +28,7 @@ public interface UserService {
     //删除中间
     void deletezjbById(int id);
 
-    UserRoler selectRoler(Integer id);
+    UserRoler selectRoler(Integer id);//查看用户权限
 
-    int updateUserRoler(Integer uid);
+    int updateUserRoler(Integer uid);//修改用户权限
 }

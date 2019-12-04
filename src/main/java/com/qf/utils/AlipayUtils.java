@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
+
 
 @Component
 public class AlipayUtils {

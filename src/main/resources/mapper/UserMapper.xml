@@ -41,6 +41,6 @@
         select * from user_roler where uid=#{id}
     </select>
     <update id="updateUserRoler" parameterType="int">
-        update user_roler set rid=2 where uid=#{uid}
+        update user_roler set rid=3 where uid=#{uid}
     </update>
 </mapper>

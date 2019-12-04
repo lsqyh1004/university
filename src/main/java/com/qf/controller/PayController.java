@@ -23,8 +23,8 @@ public class PayController {
     @Autowired
     private UserService userService;
 
-
-    public String pay(Integer uid) {
+    @RequestMapping("/pay")
+    public String pay(HttpSession session) {
         String pay="";
         try {
             pay = alipayUtils.pay();
@@ -32,25 +32,15 @@ public class PayController {
             e.printStackTrace();
         }
         System.out.println(pay);
-        int m=userService.updateUserRoler(uid);
-        return pay;
-    }
-    @RequestMapping("/pay")
-    public int pay1(HttpSession session){
         User user = (User) session.getAttribute("user");
-        int uid=0;
-        if (user==null){
-            return -1;
-        }else{
+        if (user!=null){
             User user1 = userService.selectByName(user.getName());
-            uid=user1.getId();
-           UserRoler ur= userService.selectRoler(user1.getId());
-           if (ur.getRid()==2){
-               return 0;
-           }
-           this.pay(uid);
-            return 3;
+
+                userService.updateUserRoler(user1.getId());
+
+
         }
+        return pay;
     }
 
 }
