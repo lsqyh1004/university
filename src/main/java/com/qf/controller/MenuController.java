@@ -1,10 +1,7 @@
 package com.qf.controller;
 
 import com.qf.pojo.*;
-import com.qf.service.CollectService;
-import com.qf.service.DiscussService;
-import com.qf.service.MenuService;
-import com.qf.service.UserService;
+import com.qf.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +21,8 @@ public class MenuController {
     private UserService userService;
     @Autowired
     private CollectService collectService;
+    @Autowired
+    private ThemeService themeService;
     @RequestMapping("/index")
     public Index index() {
         List<Menu3> menu3s = menuService.selectM3ByTime();
@@ -66,6 +65,7 @@ public class MenuController {
         du.setRows(num);
         return du;
     }
+    //后台查询视频相关数据
     @RequestMapping("/houtaisp/{size}/{page}")
     public Sp houtaisp(@PathVariable("size") Integer size, @PathVariable("page") Integer page){
 
@@ -75,5 +75,10 @@ public class MenuController {
     public int del(@RequestBody Menu3 menu3){
 
         return menuService.del(menu3.getId3());
+    }
+    //后台新增
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public int addM34(@RequestBody M3m4 m3m4){
+        return menuService.addM3m4(m3m4);
     }
 }

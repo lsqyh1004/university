@@ -24,6 +24,13 @@
     </resultMap>
     <resultMap id="m2" type="menu2">
         <result column="name2" property="name2"></result>
+        <association property="t" javaType="theme">
+            <result property="url1" column="url1"></result>
+            <result property="url2" column="url2"></result>
+            <result property="url3" column="url3"></result>
+            <result property="url4" column="url4"></result>
+            <result property="url5" column="url5"></result>
+        </association>
         <collection property="list" ofType="menu3">
             <id column="id3" property="id3"></id>
             <result column="name3" property="name3"></result>
@@ -34,13 +41,13 @@
         </collection>
     </resultMap>
     <select id="selectIndex" resultMap="m1">
-        SELECT m1.*,m3.*,t.* FROM menu1 m1,menu2 m2,menu3 m3,theme t WHERE m2.m1_id=m1.id AND m3.m2_id=m2.id AND t.id=0
+        SELECT m1.*,m3.*,t.* FROM menu1 m1,menu2 m2,menu3 m3,theme t WHERE m2.m1_id=m1.id AND m3.m2_id=m2.id AND t.id=0 order by m3.pageview desc
     </select>
     <select id="selectM3ByTime" resultType="menu3">
         select * from menu3 order by time desc limit 0,6
     </select>
     <select id="selectC23ByC1" parameterType="int" resultMap="m2">
-        select m2.name2,m3.* from menu2 m2,menu3 m3 where m2.id=m3.m2_id and m2.m1_id=#{id}
+        select m2.name2,m3.* ,t.*from menu2 m2,menu3 m3,theme t where m2.id=m3.m2_id and t.id=m2.m1_id and m2.m1_id=#{id}
     </select>
     <select id="selectC4ByC3" parameterType="int" resultType="menu4">
         select * from menu4 where m3_id=#{id}
@@ -57,4 +64,13 @@
     <delete id="del" parameterType="int">
         delete from menu3 where id3=#{id}
     </delete>
+    <insert id="addM3" parameterType="com.qf.pojo.M3m4">
+        insert into menu3(name3,school,m2_id,pic,time) values (#{name3},#{school},18,#{pic},#{time})
+    </insert>
+    <insert id="addM4" parameterType="com.qf.pojo.M3m4">
+        insert into menu4(prief,target,m3_id,url) values (#{prief},#{target},#{id3},#{url})
+    </insert>
+    <select id="select" parameterType="com.qf.pojo.M3m4" resultType="com.qf.pojo.M3m4">
+        select * from menu3 where name3=#{name3} and school=#{school}
+    </select>
 </mapper>

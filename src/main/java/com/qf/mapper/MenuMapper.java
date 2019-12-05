@@ -23,4 +23,10 @@ public interface MenuMapper {
     int delMenu4(Integer id);//根据三级菜单的编号删除想关数据
 
     int del(Integer id);//删除三级菜单的相关数据
+
+    int addM3(M3m4 m3m4);
+
+    int addM4(M3m4 m3m4);
+
+    M3m4 select(M3m4 m3m4);
 }

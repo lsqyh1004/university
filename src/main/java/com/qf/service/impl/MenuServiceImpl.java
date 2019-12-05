@@ -81,4 +81,12 @@ public class MenuServiceImpl implements MenuService {
         int s=menuMapper.del(id);
         return s;
     }
+
+    @Override
+    public int addM3m4(M3m4 m3m4) {
+       menuMapper.addM3(m3m4);
+       M3m4 m=menuMapper.select(m3m4);
+      return  menuMapper.addM4(m);
+
+    }
 }

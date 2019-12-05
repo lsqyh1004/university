@@ -15,4 +15,7 @@
     <delete id="del" parameterType="int">
         delete from collect where m3_id=#{id}
     </delete>
+    <delete id="delByUid" parameterType="int">
+        delete from collect where uid=#{id}
+    </delete>
 </mapper>

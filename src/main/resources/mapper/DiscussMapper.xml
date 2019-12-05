@@ -24,4 +24,7 @@
     <delete id="del" parameterType="int">
         delete from discuss where m3_id=#{id}
     </delete>
+    <delete id="delByUid" parameterType="int">
+        delete from discuss where uid=#{id}
+    </delete>
 </mapper>

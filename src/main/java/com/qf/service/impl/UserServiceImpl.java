@@ -1,5 +1,7 @@
 package com.qf.service.impl;
 
+import com.qf.mapper.CollectMapper;
+import com.qf.mapper.DiscussMapper;
 import com.qf.mapper.UserMapper;
 import com.qf.mapper.UserRepository;
 import com.qf.pojo.Msg;
@@ -21,6 +23,10 @@ public class UserServiceImpl implements UserService {
 private UserMapper userMapper;
 @Autowired
 private UserRepository userRepository;
+@Autowired
+private DiscussMapper discussMapper;
+@Autowired
+private CollectMapper collectMapper;
     @Override
     public User findOne(User user) {
         return userMapper.findOne(user);
@@ -76,6 +82,8 @@ private UserRepository userRepository;
 
     @Override
     public void deleteById(int id) {
+        int m=discussMapper.delByUid(id);
+        int n=collectMapper.delByUid(id);
         userMapper.deleteById(id);
     }
 

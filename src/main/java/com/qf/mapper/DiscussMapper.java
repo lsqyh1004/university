@@ -13,4 +13,6 @@ public interface DiscussMapper {
     int add(Discuss discuss);
 
     int del(Integer id);
+
+    int delByUid(int id);
 }

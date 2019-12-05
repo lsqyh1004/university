@@ -20,4 +20,6 @@ public interface MenuService {
     Sp houtaisp(Integer size,Integer page);
 
     int del(Integer id);
+
+    int addM3m4(M3m4 m3m4);
 }
