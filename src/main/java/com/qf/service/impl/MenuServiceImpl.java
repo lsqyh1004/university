@@ -84,9 +84,19 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public int addM3m4(M3m4 m3m4) {
+        if (m3m4.getPic()==null||m3m4.getName3()==null||m3m4.getPrief()==null||m3m4.getSchool()==null||m3m4.getUrl()==null||m3m4.getTarget()==null){
+            return 0;
+        }
        menuMapper.addM3(m3m4);
        M3m4 m=menuMapper.select(m3m4);
-      return  menuMapper.addM4(m);
+       m3m4.setId3(m.getId3());
+      return  menuMapper.addM4(m3m4);
 
+    }
+
+    @Override
+    public int edit(Menu3 menu3) {
+
+        return menuMapper.edit(menu3);
     }
 }

@@ -29,4 +29,6 @@ public interface MenuMapper {
     int addM4(M3m4 m3m4);
 
     M3m4 select(M3m4 m3m4);
+
+    int edit(Menu3 menu3);
 }

@@ -73,4 +73,19 @@
     <select id="select" parameterType="com.qf.pojo.M3m4" resultType="com.qf.pojo.M3m4">
         select * from menu3 where name3=#{name3} and school=#{school}
     </select>
+    <update id="edit" parameterType="menu3">
+        update menu3
+        <trim prefix="set" suffixOverrides=",">
+        <if test="pic!=null">
+            pic=#{pic},
+        </if>
+        <if test="name3!=null">
+            name3=#{name3},
+        </if>
+        <if test="school!=null">
+            school=#{school},
+        </if>
+        </trim>
+        where id3=#{id3}
+    </update>
 </mapper>

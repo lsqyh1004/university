@@ -22,4 +22,6 @@ public interface MenuService {
     int del(Integer id);
 
     int addM3m4(M3m4 m3m4);
+
+    int edit(Menu3 menu3);
 }

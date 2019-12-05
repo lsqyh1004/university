@@ -22,7 +22,7 @@ public class ShangcController {
         String filepath="F:/img/";
         String uuid = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
         File dest=new File(filepath+uuid+fileName);
-        String s="http://10.12.159.76:1018/"+uuid+fileName;
+        String s="http://10.12.159.125:1018/"+uuid+fileName;
         try {
             file.transferTo(dest);
             return s;

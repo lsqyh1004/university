@@ -20,8 +20,8 @@ public class CollectController {
     private CollectService collectService;
     @Autowired
     private MenuService menuService;
-    @RequestMapping("/add/{id}/{sid}")
-    public int add(@PathVariable("id") Integer id, @PathVariable("sid") Integer sid, HttpSession session){
+    @RequestMapping("/add/{id}")
+    public int add(@PathVariable("id") Integer id, HttpSession session){
         User user = (User) session.getAttribute("user");
         if (user==null){
             return -1;

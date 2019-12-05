@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -79,6 +80,20 @@ public class MenuController {
     //后台新增
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public int addM34(@RequestBody M3m4 m3m4){
+        System.out.println(m3m4+"===========");
+        m3m4.setTime(new Date());
         return menuService.addM3m4(m3m4);
+    }
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
+    public int edit(@RequestBody Menu3 menu3){
+        System.out.println(menu3+"+++++++++++");
+        return menuService.edit(menu3);
+    }
+    @RequestMapping(value = "/findOne",method = RequestMethod.POST)
+    public Menu3 findOne(@RequestBody M3m4 menu3){
+        if (menu3!=null){
+            return menuService.selectC3ById(menu3.getId3());
+        }
+        return null;
     }
 }
