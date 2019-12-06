@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 
 @RestController
 @RequestMapping("/user")
@@ -35,6 +34,7 @@ public class UserController {
 
     @RequestMapping(value = "/regist", method = RequestMethod.POST)
     public int regist(User user) {
+        System.out.println(user+"注册");
         if (userService.findOne(user) != null) {
             return -1;
         } else {
@@ -49,6 +49,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public int login(User user, HttpSession session) {
+        System.out.println(user+".....................");
         try {
             Subject subject = SecurityUtils.getSubject();
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getName(), user.getPass());
@@ -117,14 +118,10 @@ public class UserController {
     @RequestMapping("/YZM")
     @ResponseBody
     public String YZM(HttpSession session) throws Exception {
-        //获取用户
-        User usersss=new User();
-        usersss.setName("admin");
-        usersss.setEmail("2067094042@qq.com");
-        session.setAttribute("user",usersss);
         User user = (User)session.getAttribute("user");
         //根据名字获取用户邮箱
         String name = user.getName();
+        System.out.println(name+"++++++++++++++++++++++++++++++++++");
         User user1 = userService.selectByName(name);
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         //发件人

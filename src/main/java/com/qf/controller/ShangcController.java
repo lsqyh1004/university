@@ -19,10 +19,10 @@ public class ShangcController {
             return "上传失败";
         }
         String fileName=file.getOriginalFilename();
-        String filepath="F:/img/";
+        String filepath="/home/img/";
         String uuid = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
         File dest=new File(filepath+uuid+fileName);
-        String s="http://10.12.159.125:1018/"+uuid+fileName;
+        String s="http://47.105.171.105:1018/"+uuid+fileName;
         try {
             file.transferTo(dest);
             return s;
